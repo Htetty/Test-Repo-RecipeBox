@@ -1,0 +1,13 @@
+{
+  "name": "recipebox",
+  "version": "1.0.0",
+  "description": "Recipe collection app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@fastify/static": "^7.0.4",
+    "fastify": "^4.28.1"
+  }
+}

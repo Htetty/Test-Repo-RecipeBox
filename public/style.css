@@ -1,0 +1,16 @@
+* { box-sizing: border-box; margin: 0; }
+body { font-family: -apple-system, sans-serif; background: #fafaf5; color: #292524; }
+.container { max-width: 640px; margin: 40px auto; padding: 0 16px; }
+h1 { margin-bottom: 16px; }
+.search { width: 100%; padding: 10px 12px; border: 1px solid #d6d3d1; border-radius: 8px; margin-bottom: 20px; font-size: 15px; }
+.empty { color: #78716c; }
+.recipes { list-style: none; }
+.recipes li { display: flex; justify-content: space-between; align-items: center; background: #fff; border-radius: 10px; padding: 14px 16px; margin-bottom: 10px; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+.info { display: flex; flex-direction: column; gap: 2px; }
+.meta { color: #a8a29e; font-size: 13px; }
+.rating { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+.rating select { padding: 4px; border-radius: 6px; border: 1px solid #d6d3d1; }
+.rating button { padding: 6px 10px; border: none; border-radius: 6px; background: #16a34a; color: #fff; cursor: pointer; font-size: 13px; }
+.pager { display: flex; align-items: center; gap: 12px; justify-content: center; margin-top: 16px; }
+.pager button { padding: 6px 14px; border: 1px solid #d6d3d1; background: #fff; border-radius: 6px; cursor: pointer; }
+.pager button:disabled { opacity: .4; cursor: default; }

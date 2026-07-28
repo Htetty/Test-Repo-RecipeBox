@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RecipeBox</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <main class="container">
+      <h1>RecipeBox</h1>
+      <input
+        class="search"
+        v-model="query"
+        @input="search"
+        placeholder="Search recipes..."
+      />
+      <p v-if="loaded && items.length === 0" class="empty">No recipes found.</p>
+      <ul class="recipes">
+        <li v-for="recipe in items" :key="recipe.id">
+          <div class="info">
+            <strong>{{ recipe.title }}</strong>
+            <span class="meta">{{ recipe.time }} min</span>
+          </div>
+          <div class="rating">
+            <span v-if="recipe.avgRating !== null">
+              ★ {{ recipe.avgRating }} ({{ recipe.ratingCount }})
+            </span>
+            <span v-else class="meta">No ratings</span>
+            <select v-model="pendingRatings[recipe.id]">
+              <option disabled value="">Rate</option>
+              <option v-for="n in 5" :value="n">{{ n }}</option>
+            </select>
+            <button @click="rate(recipe.id)">Submit</button>
+          </div>
+        </li>
+      </ul>
+      <nav class="pager" v-if="totalPages > 1">
+        <button :disabled="page <= 1" @click="go(page - 1)">Prev</button>
+        <span>Page {{ page }} of {{ totalPages }}</span>
+        <button :disabled="page >= totalPages" @click="go(page + 1)">Next</button>
+      </nav>
+    </main>
+  </div>
+  <script src="vendor/vue.global.prod.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
