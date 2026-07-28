@@ -32,10 +32,10 @@ fastify.get('/api/recipes', (request, reply) => {
   const q = request.query.q || '';
 
   const filtered = q
-    ? recipes.filter(r => r.title.startsWith(q))
+    ? recipes.filter(r => r.title.toLowerCase().includes(q.toLowerCase()))
     : recipes;
 
-  const start = page * PER_PAGE;
+  const start = (page - 1) * PER_PAGE;
   const items = filtered.slice(start, start + PER_PAGE);
 
   reply.send({
